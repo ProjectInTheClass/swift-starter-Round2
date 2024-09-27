@@ -22,4 +22,17 @@ func showLottoNum() -> Set<Int> {
     return lottoNums
 }
 
-print("당첨 번호 : \(showLottoNum())")
+var myLottoNumbers : Set<Int> = [1,2,3,4,5,6]
+
+func checkCommonNums(nums : Set<Int>) {
+    let choosenNums = showLottoNum()
+    if nums.intersection(choosenNums).isEmpty {
+        print("아쉽지만 겹치는 번호가 없습니다.")
+    }
+    else {
+        print("축하합니다! 겹치는 번호는 \(choosenNums.intersection(nums))입니다!")
+
+    }
+}
+
+checkCommonNums(nums: myLottoNumbers)
