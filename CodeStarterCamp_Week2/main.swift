@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
+let myLottoNumbers: [Int] = [1, 9, 3, 34, 20, 41]
+let lottoNumbers = pickLotto()
 
+compareLottos(from: myLottoNumbers, to: lottoNumbers)
