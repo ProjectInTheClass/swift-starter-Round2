@@ -9,6 +9,10 @@
 import Foundation
 
 let myLottoNumbers: [Int] = [1, 9, 3, 34, 20, 41]
-let lottoNumbers = pickLotto()
 
-compareLottos(from: myLottoNumbers, to: lottoNumbers)
+for _ in 1...5 {
+    let lottoNumbers = pickLotto()
+    saveLotto(to: lottoNumbers)
+}
+
+checkLotto(to: 1)
