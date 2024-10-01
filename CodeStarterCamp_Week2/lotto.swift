@@ -7,36 +7,26 @@
 
 import Foundation
 
-func pickLottoNum() -> Int {
+var lottoRoundAndNumbers = [Int:Array<Int>]()
+
+func pickLottoNumber() -> Int {
     return Int.random(in: 1...45)
 }
 
-func showLottoNums() -> Set<Int> {
-    var lottoNums : Set<Int> = Set()
+func createLottoNumbers() {
+    var lottoNumbers : Set<Int> = Set()
 
-    while lottoNums.count < 6 {
-        lottoNums.insert(pickLottoNum())
+    while lottoNumbers.count < 6 {
+        lottoNumbers.insert(pickLottoNumber())
     }
     
-    return lottoNums
+    lottoRoundAndNumbers[lottoRoundAndNumbers.count + 1] = Array(lottoNumbers).sorted()
 }
 
-var myLottoNumbers : Set<Int> = [1,2,3,4,5,6]
-
-func checkCommonNums(nums : Set<Int>) {
-    let choosenNums = showLottoNums()
-    
-    if nums.intersection(choosenNums).isEmpty {
-        print("아쉽지만 겹치는 번호가 없습니다.")
-    }
-    
-    else {
-        var stringLottoNums : Array<String> = []
-        
-        for num in nums.intersection(choosenNums) {
-            stringLottoNums.append("\(num)")
-        }
-        
-        print("축하합니다! 겹치는 번호는 " + stringLottoNums.sorted().joined(separator: ", ") + "입니다!")
+func findLottoNumbers(_ round : Int) {
+    if lottoRoundAndNumbers[round] != nil {
+        print("\(round)회차의 로또 당첨 번호는 \(lottoRoundAndNumbers[round]!.map{ String($0) }.joined(separator: ", ")) 입니다.")
+    } else {
+        print("회차가 아직 진행되지 않았습니다.")
     }
 }
