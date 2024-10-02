@@ -7,7 +7,7 @@
 
 import Foundation
 
-var lottoRoundAndNumbers = [Int:Array<Int>]()
+var lottoRoundAndNumbers = [Int:Set<Int>]()
 
 func pickLottoNumber() -> Int {
     return Int.random(in: 1...45)
@@ -20,12 +20,12 @@ func createLottoNumbers() {
         lottoNumbers.insert(pickLottoNumber())
     }
     
-    lottoRoundAndNumbers[lottoRoundAndNumbers.count + 1] = Array(lottoNumbers).sorted()
+    lottoRoundAndNumbers[lottoRoundAndNumbers.count + 1] = lottoNumbers
 }
 
-func findLottoNumbers(_ round : Int) {
-    if lottoRoundAndNumbers[round] != nil {
-        print("\(round)회차의 로또 당첨 번호는 \(lottoRoundAndNumbers[round]!.map{ String($0) }.joined(separator: ", ")) 입니다.")
+func findLottoNumbers(roundFrom round : Int) {
+    if let numbers : Set<Int> = lottoRoundAndNumbers[round] {
+        print("\(round)회차의 로또 당첨 번호는 \(numbers.sorted().map{ String($0) }.joined(separator: ", ")) 입니다.")
     } else {
         print("회차가 아직 진행되지 않았습니다.")
     }

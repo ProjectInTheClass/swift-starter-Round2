@@ -7,11 +7,10 @@
 //
 
 
-createLottoNumbers()
-createLottoNumbers()
-createLottoNumbers()
-createLottoNumbers()
+for _ in 1...5 {
+    createLottoNumbers()
+}
 
-findLottoNumbers(3)
+findLottoNumbers(roundFrom : 7)
 
 print(lottoRoundAndNumbers)
