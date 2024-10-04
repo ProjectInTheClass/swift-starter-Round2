@@ -6,4 +6,11 @@
 //  Copyright © yagom academy. All rights reserved.
 //
 
-checkCommonNums(nums: myLottoNumbers)
+
+for _ in 1...5 {
+    createLottoNumbers()
+}
+
+findLottoNumbers(roundFrom : 7)
+
+print(lottoRoundAndNumbers)
